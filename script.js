@@ -8,4 +8,4 @@ function createDivs (numberofDivs) {
     };
 };
 
-createDivs(100);
+createDivs(256);
