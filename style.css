@@ -3,19 +3,14 @@
 }
 
 .container {
-    width: 960px;
-    height: auto;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 .item {
     padding: 0;
     margin: 0;
-    border: 1px solid black;
-    height: 60px;
-    width: 60px;
-    flex: 1 1 auto;
+    border: 1px solid rgb(0, 0, 0);
 }
