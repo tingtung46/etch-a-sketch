@@ -1,6 +1,6 @@
-function createDivs (numberofDivs) {
-    const container = document.querySelector('.container');
+const container = document.querySelector('.container');
 
+function createDivs (numberofDivs) {
     for (i = 0; i < (numberofDivs * numberofDivs); i++) {
         const newDiv = document.createElement('div');
         newDiv.classList.add('item');
@@ -13,4 +13,8 @@ function createDivs (numberofDivs) {
     };
 };
 
-createDivs(40);
+container.addEventListener('mouseover', item => {
+    item.target.style.backgroundColor = 'black';
+});
+
+createDivs(16);
