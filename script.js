@@ -41,13 +41,22 @@ function inputSquares() {
     createDivs(numberofDivs);
 };
 
+function random(number) {
+    return Math.floor(Math.random() * number);
+};
+
+function rainbowClr() {
+    const rainbow = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+    return rainbow;
+}
+
 gridBtn.addEventListener('click', () => {
     inputSquares();
 });
 
 rainbowBtn.addEventListener('click', () => {
     container.addEventListener('mouseover', item => {
-        item.target.style.backgroundColor = 'red';
+        item.target.style.backgroundColor = rainbowClr();
     });
 });
 
