@@ -60,4 +60,6 @@ rainbowBtn.addEventListener('click', () => {
     });
 });
 
-createDivs(16);
+window.onload = (event) => {
+    createDivs(16);
+};
