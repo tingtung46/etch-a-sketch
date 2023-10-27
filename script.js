@@ -1,7 +1,8 @@
 const container = document.querySelector('.container');
 const gridBtn = document.querySelector('.create-grid');
 const rainbowBtn = document.querySelector('.rainbow');
-const resetBtn = document.querySelector('.reset')
+const resetBtn = document.querySelector('.reset');
+const colorPicker = document.querySelector('.color-picker')
 const squares = document.querySelectorAll('.item');
 
 let numberofDivs = 16;
@@ -67,6 +68,12 @@ rainbowBtn.addEventListener('click', () => {
         item.target.style.backgroundColor = rainbowClr();
     });
 });
+
+colorPicker.oninput = () => {
+    container.addEventListener('mouseover', item => {
+        item.target.style.backgroundColor = colorPicker.value;
+    });
+};
 
 resetBtn.addEventListener('click', resetGrid);
 
