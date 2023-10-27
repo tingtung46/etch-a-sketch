@@ -1,7 +1,10 @@
 const container = document.querySelector('.container');
 const gridBtn = document.querySelector('.create-grid');
 const rainbowBtn = document.querySelector('.rainbow');
+const resetBtn = document.querySelector('.reset')
 const squares = document.querySelectorAll('.item');
+
+let numberofDivs = '';
 
 function createDivs (numberofDivs) {
     for (i = 0; i < (numberofDivs * numberofDivs); i++) {
@@ -14,17 +17,13 @@ function createDivs (numberofDivs) {
 
         container.appendChild(newDiv);
     };
-
-    container.addEventListener('mouseover', item => {
-        item.target.style.backgroundColor = 'black';
-    });
 };
 
 function inputSquares() {
     let allSquares = squares.forEach(square => {
         square.style.backgroundColor = 'white';
     });
-    let numberofDivs = parseInt(prompt('How many square per side you want create? (max: 100)'));
+    numberofDivs = parseInt(prompt('How many square per side you want create? (max: 100)'));
     
     if (numberofDivs === NaN) {
         alert('You must enter positive integer (Max: 100)');
@@ -48,7 +47,20 @@ function random(number) {
 function rainbowClr() {
     const rainbow = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
     return rainbow;
-}
+};
+
+function resetGrid() {
+    let allSquares = squares.forEach(square => {
+        square.style.backgroundColor = 'white';
+    });
+    
+    while (container.firstChild) container.removeChild(container.firstChild);
+    createDivs(numberofDivs);
+};
+
+container.addEventListener('mouseover', item => {
+    item.target.style.backgroundColor = 'black';
+});
 
 gridBtn.addEventListener('click', () => {
     inputSquares();
@@ -59,6 +71,8 @@ rainbowBtn.addEventListener('click', () => {
         item.target.style.backgroundColor = rainbowClr();
     });
 });
+
+resetBtn.addEventListener('click', resetGrid);
 
 window.onload = (event) => {
     createDivs(16);
