@@ -4,7 +4,7 @@ const rainbowBtn = document.querySelector('.rainbow');
 const resetBtn = document.querySelector('.reset')
 const squares = document.querySelectorAll('.item');
 
-let numberofDivs = '';
+let numberofDivs = 16;
 
 function createDivs (numberofDivs) {
     for (i = 0; i < (numberofDivs * numberofDivs); i++) {
@@ -58,10 +58,6 @@ function resetGrid() {
     createDivs(numberofDivs);
 };
 
-container.addEventListener('mouseover', item => {
-    item.target.style.backgroundColor = 'black';
-});
-
 gridBtn.addEventListener('click', () => {
     inputSquares();
 });
@@ -76,4 +72,7 @@ resetBtn.addEventListener('click', resetGrid);
 
 window.onload = (event) => {
     createDivs(16);
+    container.addEventListener('mouseover', item => {
+        item.target.style.backgroundColor = 'black';
+    });
 };
